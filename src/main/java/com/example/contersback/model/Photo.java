@@ -21,6 +21,9 @@ public class Photo {
     private String ref;
 
     @Column
+    private String aiRef;
+
+    @Column
     @Enumerated(EnumType.STRING)
     private PhotoStatus status;
 
