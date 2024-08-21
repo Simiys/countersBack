@@ -18,4 +18,8 @@ public class Operator {
     @Column
     private String login;
 
+    public Operator (String login) {
+        this.login = login;
+    }
+
 }

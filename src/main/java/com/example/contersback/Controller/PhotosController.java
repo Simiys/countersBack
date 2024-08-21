@@ -33,7 +33,14 @@ public class PhotosController {
 
     @GetMapping("/photos")
     public List<Photo> getPhotosForCheck(@RequestParam String login, @RequestParam String type) {
-        Operator operator = userRepository.findByLogin(login);
+        Operator operator;
+        if(userRepository.findByLogin(login) == null) {
+            operator = new Operator(login);
+            userRepository.save(operator);
+        }
+
+       operator = userRepository.findByLogin(login);
+
         long id = operator.getId();
 
         int page = 0;
